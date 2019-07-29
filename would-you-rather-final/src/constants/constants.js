@@ -1,3 +1,5 @@
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const RECEIVE_USERS = "RECEIVE-USERS";
+export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
+
 
