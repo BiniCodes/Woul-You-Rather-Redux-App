@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import Navigation from './components/navigation.js'
+//import Navigation from './components/navigation.js'
+//import Dashboard from './components/dashboard.js'
 import { connect } from 'react-redux'
 import './App.css';
 import { handleInitialData } from './actions/shared';
+import PageContainer from './components/PageContainer.js'
+
 
 class App extends Component {
   componentDidMount(){
@@ -10,7 +13,9 @@ class App extends Component {
   }
   render(){
     return (
-        <Navigation/>
+      <div>
+        <PageContainer/>  
+      </div>
       );
   }
 } 
