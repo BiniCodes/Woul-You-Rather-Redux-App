@@ -14,7 +14,9 @@ class App extends Component {
   render(){
     return (
       <div>
-        <PageContainer/>  
+        {this.props.loading
+          ? null
+          :  <PageContainer />} 
       </div>
       );
   }
@@ -22,7 +24,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }){
   return {
-    authedUser
+    loading: authedUser === null
   }
 }
 export default connect(mapStateToProps)(App)
