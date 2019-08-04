@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 
 class Navigation extends Component {
     render() {
-        console.log(this.props)
         return(
-            <div>THIS WILL BE THE NAV {this.props.questions}</div>
+            <div>THIS WILL BE THE NAV {this.props.authedUser}</div>
         )
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({authedUser}) {
+    console.log(authedUser)
     //const { questions } = state.questions
     return {
-        questions: state.questions.id
+        authedUser: authedUser   
     }
 }
 
