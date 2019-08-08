@@ -8,11 +8,41 @@ class Question extends Component {
         console.log(this.props)
 
         const {
-            avatar, choseOptionOne, choseOptionTwo, name, questionId, texOne, textTwo, timestamp
+            avatar, choseOptionOne, choseOptionTwo, name, questionId, textOne, textTwo, timestamp
         } = this.props.question
 
         return (
-            <div>{name}</div>
+            <div>
+                <div>
+                    <h2>
+                        <span>{name +' '}</span> 
+                    asks:
+                    </h2>
+                    <div>
+                        <img
+                            src="avatar.src"
+                            alt={name}
+                        />
+                        <div>
+                            <h3>Would you rather...</h3>
+                            <div class="choiceOne">
+                                <label for="choiceOne">
+                                    {textOne}
+                                    <input type="radio" id="contactChoice1" name="contact" value="email" checked/>
+                                </label>
+
+                            </div>
+                            <div class="choiceTwo">
+                                <label for="choiceTwo">
+                                    {textTwo}
+                                    <input type="radio" id="contactChoice2" name="contact" value="phone"/>
+                                </label>
+                            </div>
+                            <button id="submitButton" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )}
 }
 
