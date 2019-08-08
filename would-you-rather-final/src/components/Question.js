@@ -25,15 +25,15 @@ class Question extends Component {
                         />
                         <div>
                             <h3>Would you rather...</h3>
-                            <div class="choiceOne">
-                                <label for="choiceOne">
+                            <div className="choiceOne">
+                                <label htmlFor="choiceOne">
                                     {textOne}
                                     <input type="radio" id="contactChoice1" name="contact" value="email" checked/>
                                 </label>
 
                             </div>
-                            <div class="choiceTwo">
-                                <label for="choiceTwo">
+                            <div className="choiceTwo">
+                                <label htmlFor="choiceTwo">
                                     {textTwo}
                                     <input type="radio" id="contactChoice2" name="contact" value="phone"/>
                                 </label>
