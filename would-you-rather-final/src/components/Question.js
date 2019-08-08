@@ -20,7 +20,7 @@ class Question extends Component {
                     </h2>
                     <div>
                         <img
-                            src="avatar.src"
+                            src={avatar}
                             alt={name}
                         />
                         <div>
