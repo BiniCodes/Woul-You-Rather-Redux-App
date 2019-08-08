@@ -6,8 +6,13 @@ import {formatQuestion} from '../utils/helpers.js'
 class Question extends Component {
     render() {
         console.log(this.props)
+
+        const {
+            avatar, choseOptionOne, choseOptionTwo, name, questionId, texOne, textTwo, timestamp
+        } = this.props.question
+
         return (
-            <div>{this.props.id}</div>
+            <div>{name}</div>
         )}
 }
 
