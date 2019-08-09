@@ -10,7 +10,7 @@ class Dashboard extends Component{
             <div>This is the Dashboard!
                 <h3>Questions list</h3>
                 <ul>
-                    {this.props.questionIds.map((questionId) => (
+                    {this.props.ids.map((questionId) => (
                         <li key={questionId}>
                         {console.log(this.props)}
                             {((!(questions[questionId].optionOne.votes.includes(this.props.authedUser))) 
@@ -29,7 +29,7 @@ class Dashboard extends Component{
 function mapStateToProps({questions, authedUser} , {ids}) {
     return {
         questions:questions,
-        questionIds: ids,
+        ids,
         authedUser: authedUser
     }
 }
