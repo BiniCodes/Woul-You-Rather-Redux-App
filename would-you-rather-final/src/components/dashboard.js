@@ -5,14 +5,18 @@ import Question from './Question'
 
 class Dashboard extends Component{
     render() {
+        const {questions} = this.props
         return(
             <div>This is the Dashboard!
                 <h3>Questions list</h3>
                 <ul>
-                    
                     {this.props.questionIds.map((questionId) => (
                         <li key={questionId}>
-                            <Question id={questionId}/>
+                        {console.log(this.props)}
+                            {((!(questions[questionId].optionOne.votes.includes(this.props.authedUser))) 
+                            && (!(questions[questionId].optionTwo.votes.includes(this.props.authedUser))))
+                            ? <Question id={questionId} />
+                            : null}
                         </li> 
                     ))} 
                                   
@@ -22,9 +26,11 @@ class Dashboard extends Component{
     }
 }
 
-function mapStateToProps({questions}) {
+function mapStateToProps({questions, authedUser} , {ids}) {
     return {
-        questionIds: Object.keys(questions)
+        questions:questions,
+        questionIds: ids,
+        authedUser: authedUser
     }
 }
 
