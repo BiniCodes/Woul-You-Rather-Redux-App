@@ -47,9 +47,9 @@ class Dashboard extends Component{
 
 function mapStateToProps({questions, authedUser} , {ids}) {
     return {
-        questions:questions,
+        questions,
         ids,
-        authedUser: authedUser
+        authedUser,
     }
 }
 
