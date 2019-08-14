@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {formatQuestion} from '../utils/helpers.js'
+import {formatQuestion} from '../utils/helpers.js';
+import PollQuestion from './PollQuestion.js'
+//import "./style/index-dashboard.css";
+
 
 
 class Question extends Component {
@@ -12,36 +15,26 @@ class Question extends Component {
         } = this.props.question
 
         return (
-            <div>
-                <div>
-                    <h2>
+            <div className="userQuestions">
+                <div className="columnView">
+                    <h2 className="listUserTitle">
                         <span>{name +' '}</span> 
                     asks:
                     </h2>
-                    <div>
+                    <div className="listUserContent rowView">
                         <img
                             src={avatar}
                             alt={name}
                         />
-                        <div>
+                        <div className="columnView">
                             <h3>Would you rather...</h3>
-                            <div className="choiceOne">
-                                <label htmlFor="choiceOne">
-                                    {textOne}
-                                    <input type="radio" id="contactChoice1" name="contact" value="email" checked/>
-                                </label>
-
-                            </div>
-                            <div className="choiceTwo">
-                                <label htmlFor="choiceTwo">
-                                    {textTwo}
-                                    <input type="radio" id="contactChoice2" name="contact" value="phone"/>
-                                </label>
-                            </div>
-                            <button id="submitButton" type="submit">Submit</button>
+                            <p>{textOne + '...'}</p>
+                            <button id="viewPoll" type="submit">View Poll</button>
                         </div>
                     </div>
                 </div>
+                {/*if not answered question then show Pollquestion, if answered show Balkendiagramm*/}
+                <PollQuestion id={this.props.id} question={this.props.question} authedUser={this.props.authedUser}/>
             </div>
         )}
 }
