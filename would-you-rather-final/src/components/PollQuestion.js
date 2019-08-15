@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helpers.js';
-import { saveQuestionAnswer } from '../utils/api.js';
- 
-
-
-
+import { handleSaveQuestionAnswer} from '../actions/questions'
 
 
 class PollQuestion extends Component{
 
     state = {
         value: '',
+        option: '',
     }
 
     handleChange = (event) => {
         const value = event.target.value
+
+        const {option } = this.state
 
         event.preventDefault();
         console.log(event.target.value)
@@ -24,20 +23,41 @@ class PollQuestion extends Component{
             value
         }))
         console.log(this.state.value)
+
+        const{ id} = this.props
+
+        value === this.props.questions[id].optionOne.text
+                ? this.setState(() => ({
+                    option : 'optionOne'
+                }))
+                : this.setState(() => ({
+                    option : 'optionTwo'
+                })) 
+
+          console.log(option)
     }
 
 
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const { value } = this.state
+        const { value, option } = this.state
 
-        console.log('You chose Answer:', value)
+        console.log('You chose Answer:', value, ' which is ', option)
 
-        //saveQuestionAnswer(event.target.value);
+        const{ dispatch,authedUser,id} = this.props
+      
+      
+
+        dispatch(handleSaveQuestionAnswer({
+            qid: id,
+            authedUser,
+            answer: option 
+        }))
 
         this.setState(() => ({
-            value: ''
+            value: '',
+            option:''
         }))
     }
 
@@ -97,7 +117,8 @@ function mapStateToProps({ authedUser, users, questions }, { id }) {
 
     return {
         authedUser,
-        question: formatQuestion(question, users[question.author], authedUser)
+        question: formatQuestion(question, users[question.author], authedUser),
+        questions,
     }
 }
 
