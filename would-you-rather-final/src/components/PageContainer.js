@@ -2,15 +2,17 @@ import React, {Component} from 'react'
 import Navigation from './navigation.js'
 import Dashboard from './dashboard.js'
 import { connect } from 'react-redux'
-import PollQuestion from './PollQuestion.js';
+import NewQuestion from './NewQuestion.js';
+
 
 
 class PageContainer extends Component{
     render(){
         return(
             <div>
-                <Navigation/>
-                <Dashboard ids={this.props.questionIds}/>
+                {/* <Navigation/> */}
+                {/* <Dashboard ids={this.props.questionIds}/> */}
+                <NewQuestion/>
             </div>
         )
     }

@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS, SAVE_ANSWER } from '../constants/constants.js'
+import { RECEIVE_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from '../constants/constants.js'
 
 export default function questions (state={}, action){
     switch (action.type) {
@@ -7,6 +7,13 @@ export default function questions (state={}, action){
         return {
             ...state,
             ...action.questions
+        }
+
+        case ADD_QUESTION:
+            const { question } = action
+        return{
+            ...state,
+            [question.id]: question,
         }
 
         case SAVE_ANSWER:
