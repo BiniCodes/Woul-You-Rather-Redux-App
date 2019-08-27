@@ -1,7 +1,36 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser'
+
 
 class Login extends Component{
+    
+    state = {
+        authUser:'',
+    }
+
+    handleChange = (event) => {
+        const authUser = event.target.value
+        console.log(authUser)
+        
+        this.setState(() => ({
+            authUser
+        }))
+    }
+
+    handleSubmit = (event) =>{
+        const {authUser} = this.state
+        const {dispatch} = this.props
+
+        event.preventDefault();
+        console.log(authUser)
+
+        dispatch(setAuthedUser({
+            id: authUser,
+        }))
+        
+    }
+
     render(){
         return(
             <div> 
@@ -12,15 +41,17 @@ class Login extends Component{
                 <hr/>
                     <div>
                         <img className="centerElement" src="letsgo.jpg" alt="React Redux Logo"/>
-                            <h1>Sign In</h1>
-                            <form action=""  >
-                                <select className="centerElement" name="users" id="userslist" aria-placeholder="Select User">
-                                    <option className="optionColor" value="" hidden defaultValue='selected'>Select User</option>
-                                    <option value="Bob">Avengers</option>
-                                    <option value="Babsy">Deadpool</option>
-                                    <option value="Britta">Britta</option>
-                                </select>
-                                <button className="centerElement" type="submit">Sign In</button>
+
+                            <form action="" onSubmit={this.handleSubmit}  >
+                                <label>Sign In
+                                    <select className="centerElement" name="users" id="userslist" aria-placeholder="Select User" value={this.state.value} onChange={this.handleChange}>
+                                        <option className="optionColor" value="" hidden defaultValue='selected'>Select User</option>
+                                        <option value="Avengers">Avengers</option>
+                                        <option value="Deadpool">Deadpool</option>
+                                        <option value="Britta">Britta</option>
+                                    </select>
+                                    <button className="centerElement" type="submit">Sign In</button>
+                                </label>
                             </form>
                     </div>
 
