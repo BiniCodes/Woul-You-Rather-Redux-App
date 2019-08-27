@@ -1,0 +1,293 @@
+/*Flexbox containers */
+.columnView{
+    display:flex;
+    flex-direction: column;
+}
+.rowView{
+    display: flex;
+    flex-direction: row;
+}
+
+li{
+    list-style-type: none;
+}
+
+/*Mobile Version*/
+#listUserQuestions{
+    padding: 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+#answeredUnanswered{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+#answeredUnanswered a{
+    text-align: center;
+    margin-top: 0;
+    padding: 1%;
+    font-size: 0.4rem;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid black;
+}
+#answeredUnanswered a:last-child{
+    border-left: 1px solid black;
+}
+#answeredUnanswered a:link{
+    text-decoration: none;
+}
+#answeredUnanswered a:active{
+    background-color: aquamarine;
+    color:black;
+}
+.clickedTab{
+    background-color: azure;
+    color: cornflowerblue;
+}
+
+/* User's Questions Home View */
+.userQuestions{
+    width: 90%;
+    height: 170px;
+    border: 2px solid black;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+}
+.listUserTitle{
+    font-size: 1.1em;
+    border-bottom: 1px solid black;
+    padding-left: 8%;
+    padding-bottom: 2%;
+    background-color: beige; 
+    margin:0;
+    padding: 2%;
+}
+.listUserContent div{
+    border-left: 1px solid black;
+    margin-left: 8%;
+    margin-top: 4%;
+    width: 55%;
+}
+.listUserContent img{
+    width: 20%;
+    height: 20%;
+    margin-left: 8%;
+    margin-top: 4%;
+}
+.listUserContent div h3{
+    margin: 0;
+    margin-bottom: 2%;
+    margin-left: 8%;
+    font-size: 1.2rem;
+    width: 100%;
+}
+.listUserContent div p{
+    margin-left: 8%;
+    margin-top: 2%;
+    font-size: 0.9rem;
+}
+.listUserContent div button{
+    margin-left: 8%;
+    font-size: 0.6rem;
+    min-width: 48px;
+    width: 100%;
+    height: 28px;;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 3%;
+}
+
+@media screen and (min-width:750px){
+    /* #listUserQuestions{
+        border: 1px solid black;
+        padding: 0;
+        width: 33.3%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #answeredUnanswered{
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+    }
+    #answeredUnanswered a{
+        text-align: center;
+        margin-top: 0;
+        padding: 1%;
+        font-size: 0.5rem;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+    }
+    #answeredUnanswered a:last-child{
+        border-left: 1px solid black;
+    }
+    #answeredUnanswered a:link{
+        text-decoration: none;
+    }
+    #answeredUnanswered a:active{
+        background-color: aquamarine;
+        color:black;
+    }
+    .clickedTab{
+        background-color: azure;
+        color: cornflowerblue;
+    }
+
+    /* User's Questions Home View */
+    .userQuestions{
+        width: 90%;
+        height: 170px;
+        border: 2px solid black;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4%;
+    }
+    .listUserTitle{
+        font-size: 1.1em;
+        border-bottom: 1px solid black;
+        padding-left: 8%;
+        padding-bottom: 2%;
+        background-color: beige; 
+        margin:0;
+        padding: 2%;
+    }
+    .listUserContent div{
+        border-left: 1px solid black;
+        margin-left: 8%;
+        margin-top: 4%;
+        width: 55%;
+    }
+    .listUserContent img{
+        width: 20%;
+        height: 20%;
+        margin-left: 8%;
+        margin-top: 4%;
+    }
+    .listUserContent div h3{
+        margin: 0;
+        margin-bottom: 2%;
+        margin-left: 8%;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    .listUserContent div p{
+        margin-left: 8%;
+        margin-top: 2%;
+        font-size: 0.9rem;
+    }
+    .listUserContent div button{
+        margin-left: 8%;
+        font-size: 0.6rem;
+        min-width: 48px;
+        width: 100%;
+        height: 28px;;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 3%;
+    } 
+    
+}
+
+@media screen and (min-width:1025px){
+    #listUserQuestions{
+        border: 1px solid black;
+        padding: 0;
+        width: 33.3%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #answeredUnanswered{
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+    }
+    #answeredUnanswered a{
+        text-align: center;
+        margin-top: 0;
+        padding: 1%;
+        font-size: 0.5rem;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+    }
+    #answeredUnanswered a:last-child{
+        border-left: 1px solid black;
+    }
+    #answeredUnanswered a:link{
+        text-decoration: none;
+    }
+    #answeredUnanswered a:active{
+        background-color: aquamarine;
+        color:black;
+    }
+    .clickedTab{
+        background-color: azure;
+        color: cornflowerblue;
+    }
+
+    /* User's Questions Home View */
+    .userQuestions{
+        width: 90%;
+        height: 170px;
+        border: 2px solid black;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4%;
+    }
+    .listUserTitle{
+        font-size: 1.1em;
+        border-bottom: 1px solid black;
+        padding-left: 8%;
+        padding-bottom: 2%;
+        background-color: beige; 
+        margin:0;
+        padding: 2%;
+    }
+    .listUserContent div{
+        border-left: 1px solid black;
+        margin-left: 8%;
+        margin-top: 4%;
+        width: 55%;
+    }
+    .listUserContent img{
+        width: 20%;
+        height: 20%;
+        margin-left: 8%;
+        margin-top: 4%;
+    }
+    .listUserContent div h3{
+        margin: 0;
+        margin-bottom: 2%;
+        margin-left: 8%;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    .listUserContent div p{
+        margin-left: 8%;
+        margin-top: 2%;
+        font-size: 0.9rem;
+    }
+    .listUserContent div button{
+        margin-left: 8%;
+        font-size: 0.6rem;
+        min-width: 48px;
+        width: 100%;
+        height: 28px;;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 3%;
+    }
+
+}
+
+
+

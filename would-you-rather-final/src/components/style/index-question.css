@@ -1,0 +1,110 @@
+/* Flex Views*/
+.columnView{
+    display:flex;
+    flex-direction: column;
+}
+.rowView{
+    display: flex;
+    flex-direction: row;
+}
+
+/*Mobile Version*/
+#containerPoll{
+    width: 90%;
+    margin-left:auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+.listUserTitle{
+    font-size: 1.1em;
+    border-bottom: 1px solid black;
+    padding-left: 8%;
+    padding-bottom: 2%;
+    padding-top:2%;
+    background-color: beige; 
+    margin: 0;
+}
+.pollQuestionContent{
+    padding: 2%;
+}
+.pollQuestionContent img{
+    width: 35%;
+    height: 35%;
+    padding: 2%;
+    padding-top: 5%;
+}
+.pollQuestion{
+    border-left: 1px solid black;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    width: 66.6%;
+}
+.pollQuestion h3{
+    font-size: 1.2rem;
+    margin-bottom: 8%;
+}
+.pollQuestion div input{
+    margin-top: 2%;
+    cursor: pointer;
+}
+label{
+    width:100%;
+}
+.pollQuestion div{
+    padding-left: 5%;
+}
+
+.pollQuestion button{
+    margin-top: 8%;
+    width:100%;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/*Tablet Version*/
+@media screen and (min-width:600px){
+    #containerPoll{
+        width: 80%;
+    }
+    .listUserTitle{
+        font-size: 1.8em;
+    }
+    .pollQuestionContent{
+        padding: 4%;
+    }
+    .pollQuestion{
+    border-left: 1px solid black;
+    padding-left: 5%;
+    }
+    .pollQuestion h3{
+        font-size: 2.3rem;
+        margin-top: 1%;
+    }
+    .pollQuestion div{
+        font-size: 2em;
+    }
+    .pollQuestion div input{
+        margin-top: 6%;
+    }
+    .pollQuestion button{
+        font-size: 1.8rem;
+        margin-top: 15%;
+    }
+}
+
+
+/*Desktop Version*/
+@media screen and (min-width:1025px){
+    #containerPoll{
+        width: 33.3%;
+    }
+    .pollQuestion h3{
+        font-size: 2.6rem;
+    }
+    .pollQuestion button{
+        font-size: 1.8rem;
+        margin-top: 15%;
+    }
+}
