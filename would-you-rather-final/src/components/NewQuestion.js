@@ -50,7 +50,7 @@ class NewQuestion extends Component{
         console.log(value1)
         console.log(value2)
 
-        dispatch(handleSaveQuestion(this.state.formControls.optionOne.value, this.state.formControls.optionTwo.value))
+        dispatch(handleSaveQuestion(value1, value2))
 
         this.setState({
             value1: '',
