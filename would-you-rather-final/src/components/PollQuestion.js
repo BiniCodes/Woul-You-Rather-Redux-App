@@ -102,6 +102,7 @@ class PollQuestion extends Component{
                                         <input type="radio" id="contactChoice2" name="option" value={textTwo} onChange={this.handleChange} checked={value === {textTwo}}/>
                                     </label>
                                 </div>
+                                {/* {After submit change to the Results component} */}
                                 <button type="submit" id="submitButton" value="Submit"> Save </button>
                             </form>
                         </div>
