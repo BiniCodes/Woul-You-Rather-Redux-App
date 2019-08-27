@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import './style/index-result.css'
 
 class Results extends Component{
 
@@ -34,43 +35,58 @@ class Results extends Component{
 
 
         return(
-            <div>
-                <h2>Asked by {name} </h2>
-                <img src={img} alt={name}/>
-
-                <h1>Results: </h1>
-
-                <p>Would you rather {optionOne} ?</p>
-                <h3> {votesOne} out of {totalVotes} votes</h3>
-                {/* <p>{
-                    (questions[id].optionOne.votes.includes[user])
-                    ? console.log('This is your choice.' + user)
-                    : null
-                    }
-                </p> */}
-
-
-                <p>Would you rather {optionTwo} ?</p>
-                <h3> {votesTwo} out of {totalVotes} votes</h3>
-                {/* <p>{
-                    (questions[id].optionTwo.votes.includes[user])
-                        ? 'This is your choice.'
-                        : null
-                }
-                </p> */}
+            <div id="containerPoll" className="columnView">
+                <h2 className="listUserTitle">Asked by {name} </h2>
+                <div className="rowView pollSolutionContent">
+                    <img src={img} alt={name}/>
+                    
+                    <div className="columnView pollSolution">
+                        <h1>Results: </h1>
+                        <div className="choiceOneSolution">
+                            <p>Would you rather {optionOne} ?</p>
+                            <div className="resultBarOne">
+                                <div className="resultOnePercentageBar">
+                                    <span className="resultOnePercentage">66,7%</span>
+                                </div>
+                                <h3 className="voteChoiceOne"> {votesOne} out of {totalVotes} votes</h3>
+                                {/* <p>{
+                                    (questions[id].optionOne.votes.includes[user])
+                                    ? console.log('This is your choice.' + user)
+                                    : null
+                                    }
+                                </p> */}
+                            </div>
+                        </div>
+                        <div className="choiceTwoSolution">
+                            <p>Would you rather {optionTwo} ?</p>
+                            <div className="resultBarTwo">
+                                <div className="resultTwoPercentageBar">
+                                    <span className="resultTwoPercentage">33,3%</span>
+                                </div>
+                                <h3 className="voteChoiceTwo"> {votesTwo} out of {totalVotes} votes</h3>
+                                {/* <p>{
+                                    (questions[id].optionTwo.votes.includes[user])
+                                        ? 'This is your choice.'
+                                        : null
+                                }
+                                </p> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         )
     }
 }
 
-function mapStateToProps({ authedUser, questions, users }, {ids}) {
+function mapStateToProps({ authedUser, questions, users }, {ids, userIds}) {
     return {
         ids,
         authedUser,
         questions,
         users,
-        userIds: Object.keys(users)
+        userIds
     }
 }
 
