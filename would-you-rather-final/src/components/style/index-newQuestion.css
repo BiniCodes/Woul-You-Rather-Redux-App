@@ -1,0 +1,79 @@
+#containerQuestions{
+    border: 2px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+#newQuestionTitle{
+    text-align: center;
+    font-size: 1.5em;
+    background-color: pink;
+    padding:2%;
+    margin:0;
+}
+hr{
+    padding:0;
+    margin:0;
+}
+
+.createQuestion{
+    font-size: 0.8rem;
+    padding: 3%;
+}
+
+.createQuestion form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.createQuestion input, button{
+    text-align: center; 
+    min-height: 48px;
+    margin-top:2%;
+    border-radius: 5px;
+}
+
+.createQuestion button{
+    background-color: lightblue;
+}
+
+/*Tablet Version*/
+@media screen and (min-width:600px){
+      #containerQuestions{
+        width: 90%;
+    }
+
+    #newQuestionTitle{
+        font-size: 2.5em;
+    }
+
+    .createQuestion{
+        font-size: 1.2rem;
+        padding: 3%;
+    }
+    .createQuestion input, button{
+        font-size: 1.2rem;
+    }
+}
+
+
+/*Desktop Version*/
+@media screen and (min-width:1025px){
+    #containerQuestions{
+        width: 33.3%;
+    }
+
+    #newQuestionTitle{
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .createQuestion{
+        padding: 2%;
+    }
+
+
+}

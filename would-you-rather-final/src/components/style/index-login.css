@@ -1,0 +1,73 @@
+#login{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 5%;
+    text-align: center;
+    border: 2px solid black;
+    display:flex;
+    flex-direction: column;
+}
+#loginHead{
+    font-size: 0.6em;
+}
+#loginArea img{
+    width: 40%;
+    margin:2%;
+    border-radius: 80%;
+}
+#loginArea form label{
+    display:flex;
+    flex-direction: column;
+    margin:5%;
+}
+
+#loginArea form label select{
+    min-height: 48px;
+    margin-top:2% 
+}
+#loginArea form label button{
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+/*Tablet Version*/
+@media screen and (min-width:600px){
+    #loginHead{
+        font-size: 1.2em;
+    }
+    #loginArea img{
+        width: 50%;
+        margin:1%;
+        border-radius: 100%;
+    }
+    #loginArea form label {
+        font-size: 1.5rem;
+    }
+    #loginArea form label select, button{
+        min-height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/*Desktop Version*/
+@media screen and (min-width:1025px){
+    #login{
+        width:33.3%;
+    }
+    #loginHead{
+        font-size: 1.2em;
+    }
+    #loginArea img{
+        width: 50%;
+        margin-bottom:0;
+        border-radius: 80%;
+    }
+    #loginArea form label {
+        font-size: 1.2rem;
+    }
+
+    #loginArea form label select option{
+        width:80%;
+    }
+}

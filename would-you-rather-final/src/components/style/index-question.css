@@ -9,102 +9,138 @@
 }
 
 /*Mobile Version*/
-#containerPoll{
+.userQuestions{
     width: 90%;
     margin-left:auto;
     margin-right: auto;
-    border: 1px solid black;
+    margin-bottom: 10%;
+    border: 2px solid black;
 }
-.listUserTitle{
-    font-size: 1.1em;
+.userQuestions div h2{
+    font-size: 0.75rem;
     border-bottom: 1px solid black;
     padding-left: 8%;
-    padding-bottom: 2%;
+    padding-bottom: 4%;
     padding-top:2%;
-    background-color: beige; 
+    background-color: pink; 
     margin: 0;
 }
-.pollQuestionContent{
-    padding: 2%;
+.userContent{
+    padding-left:5%;
+    display:flex;
+    flex-direction: column;
 }
-.pollQuestionContent img{
-    width: 35%;
-    height: 35%;
-    padding: 2%;
-    padding-top: 5%;
+.userContent img{
+    width: 30%;
+    height: 30%;
+    margin-top: 5%;
+    border-radius: 50%;
 }
-.pollQuestion{
-    border-left: 1px solid black;
-    padding-left: 5%;
-    padding-bottom: 2%;
-    width: 66.6%;
-}
-.pollQuestion h3{
+.question{
     font-size: 1.2rem;
-    margin-bottom: 8%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    flex-direction: column;
+    min-height: 210px;
+    position: relative;
 }
-.pollQuestion div input{
+.question h3{
+    font-size: 1.5rem;
+    margin-bottom: 0.5%;
+}
+.question p{
+    padding:1%;
+    font-size: 1.1rem;
+}
+.question button{
     margin-top: 2%;
     cursor: pointer;
-}
-label{
-    width:100%;
-}
-.pollQuestion div{
-    padding-left: 5%;
-}
-
-.pollQuestion button{
-    margin-top: 8%;
-    width:100%;
+    padding: 5%;
+    width:80%;
     min-width: 48px;
     min-height: 48px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    position:absolute;
+    bottom: 0;
+    margin: 5% auto;
 }
 
 /*Tablet Version*/
 @media screen and (min-width:600px){
-    #containerPoll{
-        width: 80%;
+    .userQuestions{
+        width: 90%;
+        margin:2%;
+        margin-bottom: 5%;
     }
-    .listUserTitle{
-        font-size: 1.8em;
-    }
-    .pollQuestionContent{
-        padding: 4%;
-    }
-    .pollQuestion{
-    border-left: 1px solid black;
-    padding-left: 5%;
-    }
-    .pollQuestion h3{
-        font-size: 2.3rem;
-        margin-top: 1%;
-    }
-    .pollQuestion div{
-        font-size: 2em;
-    }
-    .pollQuestion div input{
-        margin-top: 6%;
-    }
-    .pollQuestion button{
+    .userQuestions div h2{
         font-size: 1.8rem;
-        margin-top: 15%;
+    }
+    .userContent{
+        flex-direction: row;
+    }
+    .userContent img{
+        width: 35%;
+        height: 35%;
+        padding-left: 2%;
+        padding-top: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: 2%;
+        border-radius: 50%;
+    }
+    .question{
+        font-size: 1.5rem;
+        padding: 5%;
+        border-left: 1px solid black;
+        margin: 5% 0;
+        min-height: 280px;
+
+    }
+    .question h3{
+        font-size: 2rem;
+    }
+    .question p{
+        font-size: 1.8rem;
+    }
+    .question button{
+        font-size:1.5rem;
     }
 }
 
 
 /*Desktop Version*/
 @media screen and (min-width:1025px){
-    #containerPoll{
-        width: 33.3%;
+    .userQuestions{
+        width: 90%;
     }
-    .pollQuestion h3{
-        font-size: 2.6rem;
+    .userQuestions div h2{
+        font-size: 1.2rem;
     }
-    .pollQuestion button{
-        font-size: 1.8rem;
-        margin-top: 15%;
+    .userContent img{
+        width: 20%;
+        height: 20%;
+        margin:0;
+        margin-right: 5%;
+    }
+    .question{
+        min-height: 160px;
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 2%;
+        margin: 0;
+    }
+    .question h3{
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+    .question p{
+        font-size: 0.9rem;
+    }
+    .question button{
+        font-size:0.8rem;
+        height: 20px;
+        min-height: 40px;
+        min-width: 20px;
+        width: 90%;
+        margin-top:0;
     }
 }

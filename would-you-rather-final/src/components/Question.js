@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {formatQuestion} from '../utils/helpers.js';
 import PollQuestion from './PollQuestion.js'
-//import "./style/index-dashboard.css";
+import "./style/index-question.css";
 
 
 
@@ -17,16 +17,15 @@ class Question extends Component {
         return (
             <div className="userQuestions">
                 <div className="columnView">
-                    <h2 className="listUserTitle">
-                        <span>{name +' '}</span> 
-                    asks:
+                    <h2>
+                        <span>{name +' '}</span> asks:
                     </h2>
-                    <div className="listUserContent rowView">
+                    <div className="userContent">
                         <img
                             src={avatar}
                             alt={name}
                         />
-                        <div className="columnView">
+                        <div className="question">
                             <h3>Would you rather...</h3>
                             <p>{textOne + '...'}</p>
                             <button id="viewPoll" type="submit">View Poll</button>
@@ -34,7 +33,7 @@ class Question extends Component {
                     </div>
                 </div>
                 {/*if not answered question then show Pollquestion, if answered show Balkendiagramm*/}
-                <PollQuestion id={this.props.id} question={this.props.question} authedUser={this.props.authedUser}/>
+                {/* <PollQuestion id={this.props.id} question={this.props.question} authedUser={this.props.authedUser}/> */}
             </div>
         )}
 }

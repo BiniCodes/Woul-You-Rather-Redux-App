@@ -81,25 +81,25 @@ class PollQuestion extends Component{
                         <span>{name + ' '}</span>
                         asks:
                     </h2>
-                    <div>
+                    <div className="userContent">
                         <img
                             src={avatar}
                             alt={name}
                         />
-                        <div>
+                        <div className="question">
                             <h3>Would you rather...</h3>
                             <form onSubmit={this.handleSubmit}>
                                 <div className="choiceOne">
                                     <label htmlFor="choiceOne">
-                                        {textOne}
                                         <input type="radio" id="contactChoice1" name="option" value={textOne} onChange={this.handleChange} checked={value === {textOne}}/>
+                                        {textOne}
                                     </label>
 
                                 </div>
                                 <div className="choiceTwo">
                                     <label htmlFor="choiceTwo">
-                                        {textTwo}
                                         <input type="radio" id="contactChoice2" name="option" value={textTwo} onChange={this.handleChange} checked={value === {textTwo}}/>
+                                        {textTwo}
                                     </label>
                                 </div>
                                 {/* {After submit change to the Results component} */}

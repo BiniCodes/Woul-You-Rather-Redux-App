@@ -13,21 +13,22 @@ class PageContainer extends Component{
     render(){
         return(
             <div>
-                {/* <Navigation/> */}
+                <Navigation/>
                 {/* <Dashboard ids={this.props.questionIds}/> */}
-                {/* <NewQuestion/> */}
+                <NewQuestion/>
                 {/* <Login/> */}
-                {/* <Results ids={this.props.questionIds}/> */}
-                <Leaderboard/>
+                {/* <Results ids={this.props.questionIds} userIds={this.props.userIds}/> */}
+                {/* <Leaderboard userIds={this.props.userIds}/> */}
             </div>
         )
     }
 }
 
-function mapStateToProps({ questions}) {
+function mapStateToProps({ questions, users}) {
 
     return {
         questionIds: Object.keys(questions),
+        userIds: Object.keys(users)
     }
 }
 

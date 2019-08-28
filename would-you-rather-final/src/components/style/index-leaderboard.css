@@ -1,0 +1,128 @@
+
+
+#leaderBoardItem{
+    width: 90%;
+    display: flex;
+    border: 2px solid black;
+    margin: 5%;
+    min-height: 150px;
+}
+
+#leaderBoardItem img{
+    width: 25%;
+    height: 50%;
+    border-radius:360px;
+    margin: auto 2%;
+}
+#questionsSummary{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-left: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+#leaderBoardItem div{
+    font-size: 0.7em;
+    padding: 0 5%;
+}
+#score{
+    width: 20%;
+    margin: auto 2% ;
+    padding: 0;
+    text-align: center;
+}
+#score h3{
+    border-bottom: 1px solid black;
+    padding:0;
+    margin:0;
+}
+#score p{
+    color:white;
+    background-color:pink;
+    border-radius: 360px;
+}
+
+/*Tablet Version*/
+@media screen and (min-width:600px){
+    #leaderBoardItem{
+        min-height: 200px;
+    }
+
+    #leaderBoardItem img{
+        width: 20%;
+        height: 50%;
+        border-radius:360px;
+        margin: auto 2%;
+    }
+    #questionsSummary{
+        width: 66.6%;
+        margin-top: 5%;
+    }
+    #leaderBoardItem div{
+        font-size: 1.2em;
+        padding: 0 5%;
+    }
+    #score{
+        width: 13.4%;
+        margin: auto 2% ;
+        padding: 0;
+        text-align: center;
+    }
+    #score h3{
+        font-size: 1.8rem;
+    }
+    #score p{
+        font-size: 2rem;
+    }
+}
+
+
+/*Desktop Version*/
+@media screen and (min-width:1025px){
+    #leaderboard{
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+    } 
+    #leaderBoardItem{
+        width: 33.3%;
+        display: flex;
+        border: 2px solid black;
+        margin: 5%;
+        min-height: 150px;
+    }
+
+    #leaderBoardItem img{
+        width: 25%;
+        height: 50%;
+        border-radius:360px;
+        margin: auto 2%;
+    }
+    #questionsSummary{
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        padding-left: 2%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    #leaderBoardItem div{
+        font-size: 0.7em;
+        padding: 0 5%;
+    }
+    #score{
+        width: 20%;
+        margin: auto 2% ;
+        padding: 0;
+        text-align: center;
+    }
+    #score h3{
+        border-bottom: 1px solid black;
+        padding:0;
+        margin:0;
+    }
+    #score p{
+        color:white;
+        background-color:pink;
+        border-radius: 360px;
+} 
+}
