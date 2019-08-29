@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
+import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import './style/index-login.css'
 import Superheroes from './img/superheroes.jpg'
 
@@ -10,32 +11,45 @@ import Superheroes from './img/superheroes.jpg'
 class Login extends Component{
     
     state = {
-        authUser:'',
+        authedUser:'',
+        toDashboard : false,
     }
 
     handleChange = (event) => {
-        const authUser = event.target.value
-        console.log(authUser)
+        const authedUser = event.target.value
+        console.log(authedUser)
         
         this.setState(() => ({
-            authUser
+            authedUser,
         }))
     }
 
     handleSubmit = (event) =>{
-        const {authUser} = this.state
+        const authedUser = this.state.authedUser
         const {dispatch} = this.props
 
         event.preventDefault();
-        console.log(authUser)
+        console.log(authedUser)
 
-        dispatch(setAuthedUser({
-            id: authUser,
-        }))
+        authedUser === ''
+            ? alert('Please select a user! :) ')
+            : dispatch(setAuthedUser(authedUser))
         
+        this.setState(() => ({
+            authedUser:'',
+            toDashboard: true,
+
+        }))
+
     }
 
     render(){
+        const { users, authedUser } = this.props;
+
+        if (this.state.toDashboard === true) {
+            return <Redirect to='/dashboard' />
+        }
+
         return(
             <div id="login"> 
                 <div id="loginHead">
@@ -50,13 +64,15 @@ class Login extends Component{
 
                         <form action="" onSubmit={this.handleSubmit}  >
                             <label>Sign In
-                                <select className="centerElement" name="users" id="userslist" aria-placeholder="Select User" value={this.state.value} onChange={this.handleChange}>
+                                <select className="centerElement" name="users" id="userslist" value={this.state.value} onChange={this.handleChange}>
                                     <option className="optionColor" value="" hidden defaultValue='selected'>Select User</option>
-                                    <option value="Avengers">Avengers</option>
-                                    <option value="Deadpool">Deadpool</option>
-                                    <option value="Britta">Britta</option>
+                                    {users.map((user)=>
+                                        <option value={user.id}>{user.name}</option>
+                                        )}
                                 </select>
-                                <button className="centerElement" type="submit">Sign In</button>
+                                <button className="centerElement" type="submit">
+                                <Link >Sign In</Link>
+                                </button>
                             </label>
                         </form>
                 </div>
@@ -69,7 +85,7 @@ class Login extends Component{
 function mapStateToProps({authedUser, users}){
     return{
         authedUser,
-        users
+        users: Object.values(users)
     }
 }
 
