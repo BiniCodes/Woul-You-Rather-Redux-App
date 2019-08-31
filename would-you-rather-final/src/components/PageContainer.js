@@ -23,19 +23,6 @@ const PrivateRoute = ({component: Component, authedUser, ...rest}) =>{
     )           
 }
 
-// const PublicRoute = ({ component: Component, authedUser, restricted,...rest }) => {
-//     return (
-//         <Route {...rest} render={props => (
-//             authedUser && restricted
-//                 ? <Redirect to="/dashboard" />
-//                 : <Component {...props} />
-                 
-//         )}
-//         />
-//     )
-// }
-
-
 
 class PageContainer extends Component{
     render(){
