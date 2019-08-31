@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component , Fragment} from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink} from "react-router-dom";
 import { setAuthedUser } from '../actions/authedUser'
 import './style/index-navigation.css'
 
@@ -20,26 +20,30 @@ class Navigation extends Component {
                 <nav>
                     <ul className="questionList">
                         <li id="home">
-                            {authedUser === null
-                            ? <Link to="/login">Home</Link>
-                            : <Link to="/dashboard">Home</Link>}
+                            {authedUser === ''
+                            ? <NavLink to="/login">Home</NavLink>
+                            : <NavLink to="/dashboard">Home</NavLink>}
                         </li>
                         <li id="newQuestion">
-                            <Link to="/newQuestion/">New Question</Link>
+                            {authedUser === ''
+                            ? <NavLink to="/login">New Question</NavLink>
+                            :<NavLink to="/newQuestion/">New Question</NavLink>}
                         </li>
                         <li id="leaderBoard">
-                            <Link to="/leaderboard">Leader Board</Link>
+                            {authedUser === ''
+                            ? <NavLink to="/login">Leader Board</NavLink>
+                            :<NavLink to="/leaderboard">Leader Board</NavLink>}
                         </li>
                         <li id="helloUser">
-                            <p>Hello, {authedUser === null
-                                ? null
-                                : users[authedUser].name}</p>
-                            <img src={authedUser === null
-                                ? null
-                                : users[authedUser].avatarURL } alt=""></img>
+                            {authedUser
+                                ? (<Fragment><p>Hello, {users[authedUser].name}</p> <img src={users[authedUser].avatarURL} alt={users[authedUser].name}></img></Fragment>)
+                                : null}
+                                
                         </li>
                         <li id="LoginLogout">
-                            <Link to="/login" onClick={this.handleLogout}>Logout</Link>
+                            {authedUser === ''
+                                ? null
+                                :<NavLink to="/login" onClick={this.handleLogout}>Logout</NavLink>}
                         </li>
                     </ul>
                 </nav>
