@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import Question from './Question' 
-import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Route, Link , NavLink } from "react-router-dom";
 import './style/index-dashboard.css'
 
 
@@ -39,7 +39,7 @@ class UnansweredQuestions extends Component {
                             {console.log(this.props)}
                             {!((questions[questionId].optionOne.votes.includes(this.props.authedUser))
                                 || (questions[questionId].optionTwo.votes.includes(this.props.authedUser)))
-                                ? <Question id={questionId} />
+                                ? <Question id={questionId} userIds={this.props.userIds} />
                                 : null}
                         </li>
                     ))}
@@ -63,20 +63,20 @@ class Dashboard extends Component{
 
                         <div id="answeredUnanswered">
 
-                            <Link to="/dashboard/unAnsweredQuestions">
+                            <NavLink to="/dashboard/unAnsweredQuestions" activeClassName="selected">
                                 <h2 id="unansweredQuestions">Unanswered Questions</h2>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/dashboard/answeredQuestions">
+                            <NavLink to="/dashboard/answeredQuestions" activeClassName="selected">
                                 <h2 id="answeredQuestions">Answered Questions</h2>
-                            </Link>
+                            </NavLink>
                             
                         </div>
 
                         <Route path="/dashboard" exact component={() => <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
                         <Route path="/dashboard/answeredQuestions" exact component={() => <AnsweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
                         <Route path="/dashboard/unAnsweredQuestions" exact component={() => <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
-
+                    
 
                         
                         {/* <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser}/>
@@ -89,11 +89,12 @@ class Dashboard extends Component{
     }
 }
 
-function mapStateToProps({questions, authedUser} , {ids}) {
+function mapStateToProps({questions, authedUser} , {ids, userIds}) {
     return {
         questions,
         ids,
         authedUser,
+        userIds,
     }
 }
 
