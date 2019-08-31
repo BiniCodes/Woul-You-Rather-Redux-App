@@ -31,16 +31,15 @@ class Login extends Component{
         event.preventDefault();
         console.log(authedUser)
 
-        authedUser === ''
-            ? alert('Please select a user! :) ')
-            : dispatch(setAuthedUser(authedUser))
-        
-        this.setState(() => ({
-            authedUser:'',
-            toDashboard: true,
-
-        }))
-
+        if(authedUser === ''){
+            alert('Please select a user! :) ')
+        } else{
+            dispatch(setAuthedUser(authedUser))
+            this.setState(() => ({
+                toDashboard: true,
+                authedUser: '',
+            }))
+        }      
     }
 
     render(){
@@ -67,11 +66,11 @@ class Login extends Component{
                                 <select className="centerElement" name="users" id="userslist" value={this.state.value} onChange={this.handleChange}>
                                     <option className="optionColor" value="" hidden defaultValue='selected'>Select User</option>
                                     {users.map((user)=>
-                                        <option value={user.id}>{user.name}</option>
+                                        <option key={user.id} value={user.id}>{user.name}</option>
                                         )}
                                 </select>
                                 <button className="centerElement" type="submit">
-                                <Link >Sign In</Link>
+                                    Sign In
                                 </button>
                             </label>
                         </form>
