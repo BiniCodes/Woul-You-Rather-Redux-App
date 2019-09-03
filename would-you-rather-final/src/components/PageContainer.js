@@ -8,6 +8,7 @@ import Results from './Results';
 import Leaderboard from './Leaderboard';
 import { BrowserRouter as Switch, Route, Router, Redirect, Link } from "react-router-dom";
 import PollQuestion from './PollQuestion.js';
+import NotFound from './404.js'
 
 
 const PrivateRoute = ({component: Component, authedUser, ...rest}) =>{
@@ -30,12 +31,13 @@ class PageContainer extends Component{
         return(
                 <Switch>
                         <Navigation/>
-                        <Route  path="/login" component={Login} authedUser={authedUser} />
+                        <Route exact path="/login" component={Login} authedUser={authedUser} />
                         <PrivateRoute exact path="/dashboard/" component={Dashboard} ids={this.props.questionIds} authedUser={authedUser}/>
                         <PrivateRoute path="/newQuestion/" component={NewQuestion} authedUser={authedUser} />
-                        {/* <Route path="/dashboard/answeredQuestions/results/" exact component={() => <Results ids={this.props.questionIds} userIds={this.props.userIds}/>} />
-                        <Route path="/dashboard/unAnsweredQuestions/questions/" exact component={() => <PollQuestion ids={this.props.questionIds} userIds={this.props.userIds} />} />                     */}
+                        {/* <Route path="/dashboard/answeredQuestions/results/" exact component={() => <Results ids={this.props.questionIds} userIds={this.props.userIds}/>} /> */}
+                        {/* <PrivateRoute path="/dashboard/unAnsweredQuestions/questions/" component={PollQuestion} authedUser={authedUser}/>                     */}
                         <PrivateRoute path="/leaderboard/" component={Leaderboard} authedUser={authedUser} />
+                        <PrivateRoute component={NotFound}/>
 
                 </Switch>
         )
