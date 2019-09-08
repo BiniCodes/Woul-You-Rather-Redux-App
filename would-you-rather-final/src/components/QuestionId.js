@@ -16,12 +16,19 @@ class QuestionId extends Component{
             <div>
                 {
                     isQuestion
-                    ? <PollQuestion authedUser={this.props.authedUser}/>
-                    : <Results userIds={this.props.userIds} authedUser={this.props.authedUser}/>
+                    ? <PollQuestion id={this.props.QuestionId} authedUser={this.props.authedUser}/>
+                        : <Results id={this.props.QuestionId} userIds={this.props.userIds} authedUser={this.props.authedUser}/>
                 }
             </div>
         )
     }
 }
 
-export default QuestionId
+function mapStateToProps ({QuestionId, authedUser}, props){
+    return{
+        QuestionId,
+        authedUser
+    }
+}
+
+export default connect(mapStateToProps)(QuestionId)

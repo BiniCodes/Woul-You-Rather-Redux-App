@@ -65,14 +65,14 @@ class Question extends Component {
         // }
         if (this.state.toQuestion === true) {
             return <Redirect to={{
-                pathname: "/questions/",
+                pathname: `/questions/${this.props.questionId}`,
                 state: { isQuestion: true},
             }}
             />
         } 
         if (this.state.toResult === true){
             return <Redirect to={{
-                pathname: "/questions/",
+                pathname: `/questions/${this.props.questionId}`,
                 state: { isQuestion: false },
             }}
             />
@@ -96,9 +96,9 @@ class Question extends Component {
                             <h3>Would you rather...</h3>
                             <p>{textOne + '...'}</p>
                             {!(this.props.answered)
-                                    ? <button id="viewPoll" value={questionId} onClick={this.handleClickQuestion}>View Question</button>
+                                ? <button id="viewPoll" value={questionId} onClick={this.handleClickQuestion}>View Question</button>
                                 : <button id="viewResult" value={questionId} onClick={this.handleClickResult}>View Result</button>
-                            }                                
+                        }                                
                         </div>
 
                     </div>
@@ -109,7 +109,7 @@ class Question extends Component {
         )}
 }
 
-function mapStateToProps({authedUser, users, questions}, {id, answered}){
+function mapStateToProps({authedUser, users, questions, questionId}, {id, answered}){
     const question = questions[id]
 
     return {
@@ -117,7 +117,8 @@ function mapStateToProps({authedUser, users, questions}, {id, answered}){
         question: formatQuestion(question, users[question.author], authedUser),
         questions,
         answered,
-        id
+        id,
+        questionId,
     }
 }
 
