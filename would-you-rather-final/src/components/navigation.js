@@ -20,19 +20,13 @@ class Navigation extends Component {
                 <nav>
                     <ul className="questionList">
                         <li id="home">
-                            {authedUser === ''
-                            ? <NavLink to="/login">Home</NavLink>
-                            : <NavLink to="/dashboard">Home</NavLink>}
+                             <NavLink to="/dashboard">Home</NavLink>
                         </li>
                         <li id="newQuestion">
-                            {authedUser === ''
-                            ? <NavLink to="/login">New Question</NavLink>
-                            :<NavLink to="/add/">New Question</NavLink>}
+                            <NavLink to="/add/">New Question</NavLink>
                         </li>
                         <li id="leaderBoard">
-                            {authedUser === ''
-                            ? <NavLink to="/login">Leader Board</NavLink>
-                            :<NavLink to="/leaderboard">Leader Board</NavLink>}
+                            <NavLink to="/leaderboard">Leader Board</NavLink>
                         </li>
                         <li id="helloUser">
                             {authedUser
