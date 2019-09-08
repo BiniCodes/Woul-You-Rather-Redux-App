@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helpers.js';
 import { handleSaveQuestionAnswer} from '../actions/questions'
+import {Redirect} from 'react-router-dom'
 
 
 class PollQuestion extends Component{
@@ -9,6 +10,7 @@ class PollQuestion extends Component{
     state = {
         value: '',
         option: '',
+        isAnswered: false,
     }
 
     handleChange = (event) => {
@@ -19,19 +21,20 @@ class PollQuestion extends Component{
         event.preventDefault();
         console.log(event.target.value)
 
-        this.setState(() => ({
-            value
-        }))
+        // this.setState(() => ({
+        // }))
         console.log(this.state.value)
 
         const{ id} = this.props
 
         value === this.props.questions[id].optionOne.text
                 ? this.setState(() => ({
-                    option : 'optionOne'
+                    option : 'optionOne',
+                    value
                 }))
                 : this.setState(() => ({
-                    option : 'optionTwo'
+                    option : 'optionTwo',
+                    value
                 })) 
 
           console.log(option)
@@ -47,23 +50,28 @@ class PollQuestion extends Component{
 
         const{ dispatch,authedUser,id} = this.props
       
-      
+        if(this.state.option === ''){
+            alert('Please choose an option')
+        } else{
+            dispatch(handleSaveQuestionAnswer({
+                qid: id,
+                authedUser,
+                answer: option
+            }))
 
-        dispatch(handleSaveQuestionAnswer({
-            qid: id,
-            authedUser,
-            answer: option 
-        }))
-
-        this.setState(() => ({
-            value: '',
-            option:''
-        }))
+            this.setState(() => ({
+                value: '',
+                option: '',
+                isAnswered:true,
+            }))
+            
+        }
     }
 
 
     
     render(){
+        console.log(this.props.id)
 
         const {
             avatar, choseOptionOne, choseOptionTwo, name, questionId, textOne, textTwo, timestamp
@@ -71,8 +79,14 @@ class PollQuestion extends Component{
 
         const { value } = this.state
 
-        {/* Redirect to Question View after submitting*/}
      
+        if (this.state.isAnswered === true) {
+            return <Redirect to={{
+                pathname: "/questions/",
+                state: { isQuestion: false },
+            }}
+            />
+        }
 
         return(
             <div>
@@ -91,14 +105,14 @@ class PollQuestion extends Component{
                             <form onSubmit={this.handleSubmit}>
                                 <div className="choiceOne">
                                     <label htmlFor="choiceOne">
-                                        <input type="radio" id="contactChoice1" name="option" value={textOne} onChange={this.handleChange} checked={value === {textOne}}/>
+                                        <input type="radio" id="contactChoice1" name="option" value={textOne} onChange={this.handleChange} checked={this.state.option === 'optionOne'}/>
                                         {textOne}
                                     </label>
 
                                 </div>
                                 <div className="choiceTwo">
                                     <label htmlFor="choiceTwo">
-                                        <input type="radio" id="contactChoice2" name="option" value={textTwo} onChange={this.handleChange} checked={value === {textTwo}}/>
+                                        <input type="radio" id="contactChoice2" name="option" value={textTwo} onChange={this.handleChange} checked={this.state.option === 'optionTwo'}/>
                                         {textTwo}
                                     </label>
                                 </div>
@@ -113,11 +127,12 @@ class PollQuestion extends Component{
     }
 }
 
-function mapStateToProps({ authedUser, users, questions }, { id }) {
-    const question = questions[id]
+function mapStateToProps({ authedUser, users, questions , questionId }) {
+    const question = questions[questionId]
 
     return {
         authedUser,
+        id: questionId,
         question: formatQuestion(question, users[question.author], authedUser),
         questions,
     }

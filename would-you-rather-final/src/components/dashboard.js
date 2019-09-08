@@ -1,102 +1,88 @@
-import React, {Component} from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import Question from './Question' 
-import { BrowserRouter as Switch, Route, Link , NavLink } from "react-router-dom";
+import Question from './Question'
+import { BrowserRouter as Switch, Route, Link, NavLink } from "react-router-dom";
 import './style/index-dashboard.css'
+import PollQuestion from './PollQuestion';
+import Results from './Results';
 
 
-class AnsweredQuestions extends Component {
+
+class Dashboard extends Component {
+    state = {
+        answeredQuestion: false
+    }
+
+    unanswerQuestion = (e) => {
+        e.preventDefault();
+        this.setState(() => ({
+            answeredQuestion: false,
+        }))
+    }
+    answerQuestion = (e) => {
+        e.preventDefault();
+        this.setState(() => ({
+            answeredQuestion: true,
+        }))
+    }
+
     render() {
+
         const { questions } = this.props
+        // https://reacttraining.com/react-router/web/example/sidebar
+        // https://stackoverflow.com/questions/33062830/using-react-router-with-a-layout-page-or-multiple-components-per-page
 
         return (
-            <div>
+            <div id="listUserQuestions" className="columnView">
+                <div id="answeredUnanswered" className="rowView">
+                    <button id="unansweredQuestions" onClick={this.unanswerQuestion}>Unanswered</button>
+                    <button id="answeredQuestions" onClick={this.answerQuestion}>Answered</button>
+                </div>
                 <ul>
-                    {this.props.ids.map((questionId) => (
-                        <li key={questionId}>
-                            {console.log(this.props)}
-                            {((questions[questionId].optionOne.votes.includes(this.props.authedUser))
-                                || (questions[questionId].optionTwo.votes.includes(this.props.authedUser)))
-                                ? <Question id={questionId} />
-                                : null}
-                        </li>
-                    ))}
+                    {(this.state.answeredQuestion)
+                        ? (
+                            this.props.answeredIds.map((id) => (
+                                <li key={id}>
+                                    {console.log(this.props)}
+                                    {/* {!((questions[questionId].optionOne.votes.includes(this.props.authedUser)) */}
+                                    {/* || (questions[questionId].optionTwo.votes.includes(this.props.authedUser))) */}
+                                    <Question id={id} userIds={this.props.answeredIds} answered={this.state.answeredQuestion}/>
+                                    {/* // : null} */}
+                                </li>))
+                        )
+                        : (
+                            this.props.unansweredIds.map((id) => (
+                                <li key={id}>
+                                    {console.log(this.props)}
+                                    {/* {!((questions[questionId].optionOne.votes.includes(this.props.authedUser)) */}
+                                    {/* || (questions[questionId].optionTwo.votes.includes(this.props.authedUser))) */}
+                                    <Question id={id} userIds={this.props.unansweredIds} answered={this.state.answeredQuestion}/>
+                                    {/* // : null} */}
+                                </li>))
+                        )
+                    }
                 </ul>
             </div>
         )
     }
 }
 
-class UnansweredQuestions extends Component {
-    render() {
-        const { questions } = this.props
-
-        return (
-            <div>
-                <ul>
-                    {this.props.ids.map((questionId) => (
-                        <li key={questionId}>
-                            {console.log(this.props)}
-                            {!((questions[questionId].optionOne.votes.includes(this.props.authedUser))
-                                || (questions[questionId].optionTwo.votes.includes(this.props.authedUser)))
-                                ? <Question id={questionId} userIds={this.props.userIds} />
-                                : null}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        )
-    }
-}
-
-
-class Dashboard extends Component{
-    render() {
-
-        const {questions} = this.props
-
-        return(
-            <div id="listUserQuestions">
-                
-                <Switch>
-                    <div className="columnView">
-
-                        <div id="answeredUnanswered">
-
-                            <NavLink to="/dashboard/unAnsweredQuestions" activeClassName="selected">
-                                <h2 id="unansweredQuestions">Unanswered Questions</h2>
-                            </NavLink>
-
-                            <NavLink to="/dashboard/answeredQuestions" activeClassName="selected">
-                                <h2 id="answeredQuestions">Answered Questions</h2>
-                            </NavLink>
-                            
-                        </div>
-
-                        <Route path="/dashboard" exact component={() => <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
-                        <Route path="/dashboard/answeredQuestions" exact component={() => <AnsweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
-                        <Route path="/dashboard/unAnsweredQuestions" exact component={() => <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} />} />
-                    
-
-                        
-                        {/* <UnansweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser}/>
-                        // <AnsweredQuestions ids={this.props.ids} questions={questions} authedUser={this.props.authedUser} /> */}
-                        
-                    </div>
-                </Switch>
-            </div>
-        )
-    }
-}
-
-function mapStateToProps({questions, authedUser} , {ids, userIds}) {
+function mapStateToProps({ questions, authedUser, users }) {
     return {
         questions,
-        ids,
+
+        answeredIds: Object.keys(questions).filter((questionId) => ((questions[questionId].optionOne.votes.includes(authedUser))
+            || (questions[questionId].optionTwo.votes.includes(authedUser))))
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+
+        unansweredIds: Object.keys(questions).filter((questionId) => !((questions[questionId].optionOne.votes.includes(authedUser))
+            || (questions[questionId].optionTwo.votes.includes(authedUser))))
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+
         authedUser,
-        userIds,
+        userIds: Object.keys(users),
     }
 }
 
-export default connect(mapStateToProps)(Dashboard) 
+export default connect(mapStateToProps)(Dashboard)
 

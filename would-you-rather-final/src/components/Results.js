@@ -3,16 +3,9 @@ import {connect} from 'react-redux'
 import './style/index-result.css'
 
 class Results extends Component{
-
-    state={
-        id: "8xf0y6ziyjabvozdd253nd",
-        choice:'Your choice'
-    }
     
     render(){
-        //Current id for testing 
-        const {id} = this.state
-        const { userIds, users, questions} = this.props
+        const { userIds, users, questions , id , authedUser} = this.props
         const { author } = this.props.questions[id]
 
         // Add the right username with first and last name
@@ -29,7 +22,7 @@ class Results extends Component{
         const totalVotes = votesOne + votesTwo
 
         const percentageVotes = ((totalVotes, vote) =>{
-                                    return ((100 / totalVotes * vote) + '%')
+                                    return (Math.round((100 / totalVotes * vote)) + '%')
                                 }) 
 
 
@@ -41,34 +34,47 @@ class Results extends Component{
                     
                     <div className="columnView pollSolution">
                         <h1>Results: </h1>
-                        <div className="choiceOneSolution">
+                        <div id="choiceOneSolution"
+                            className={
+                                (questions[id].optionOne.votes.includes(authedUser)) 
+                                ? 'chosen'
+                                :null
+                                }
+                        >
                             <p>Would you rather {optionOne} ?</p>
                             <div className="resultBarOne">
                                 <div className="resultOnePercentageBar" style={{ width: percentageVotes(totalVotes, votesOne)}}>
                                     <span className="resultOnePercentage">{percentageVotes(totalVotes,votesOne)}</span>
                                 </div>
                                 <h3 className="voteChoiceOne"> {votesOne} out of {totalVotes} votes</h3>
-                                {/* <p>{
-                                    (questions[id].optionOne.votes.includes[user])
-                                    ? console.log('This is your choice.' + user)
-                                    : null
-                                    }
-                                </p> */}
+                                {/* {
+                                    (questions[id].optionOne.votes.includes(authedUser))
+                                    ? console.log('This is your choice.' + authedUser)
+                                        : console.log('NOPE')
+                                    } */}
                             </div>
                         </div>
-                        <div className="choiceTwoSolution">
+                        <div id="choiceTwoSolution"
+                            className={
+                                (questions[id].optionTwo.votes.includes(authedUser))
+                                    ? 'chosen'
+                                    : null
+                            }
+
+                        >
                             <p>Would you rather {optionTwo} ?</p>
                             <div className="resultBarTwo">
                                 <div className="resultTwoPercentageBar" style={{ width: percentageVotes(totalVotes, votesTwo)}}>
                                     <span className="resultTwoPercentage">{percentageVotes(totalVotes,votesTwo)}</span>
                                 </div>
                                 <h3 className="voteChoiceTwo"> {votesTwo} out of {totalVotes} votes</h3>
-                                {/* <p>{
-                                    (questions[id].optionTwo.votes.includes[user])
-                                        ? 'This is your choice.'
-                                        : null
+                                {
+                                    console.log((questions[id].optionTwo.votes).includes(authedUser))
+                                        // ? console.log('This is your choice.' + authedUser)
+                                        // :console.log('NOPE')
+                                         
                                 }
-                                </p> */}
+                                
                             </div>
                         </div>
                     </div>
@@ -79,14 +85,13 @@ class Results extends Component{
     }
 }
 
-function mapStateToProps({ authedUser, questions, users }, {ids, userIds}) {
+function mapStateToProps({ authedUser, questions, users, questionId }, {ids}) {
     return {
-        ids,
+        id: questionId,
         authedUser,
         questions,
         users,
-        userIds
-    }
+        userIds: Object.keys(users),    }
 }
 
 export default connect(mapStateToProps)(Results)
