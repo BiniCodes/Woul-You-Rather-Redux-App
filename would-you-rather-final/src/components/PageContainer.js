@@ -36,7 +36,7 @@ class PageContainer extends Component{
                         <PrivateRoute exact path="/dashboard/" component={Dashboard} ids={this.props.questionIds} authedUser={authedUser}/>
                         <PrivateRoute exact path="/questions/:id" component={QuestionId} ids={this.props.questionIds} userIds={this.props.userIds} authedUser={authedUser} />
 
-                        <PrivateRoute path="/newQuestion/" component={NewQuestion} authedUser={authedUser} />
+                        <PrivateRoute path="/add/" component={NewQuestion} authedUser={authedUser} />
                         <PrivateRoute path="/leaderboard/" component={Leaderboard} authedUser={authedUser} />
                         <Route component={NotFound}/>
 

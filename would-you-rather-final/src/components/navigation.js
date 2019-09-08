@@ -27,7 +27,7 @@ class Navigation extends Component {
                         <li id="newQuestion">
                             {authedUser === ''
                             ? <NavLink to="/login">New Question</NavLink>
-                            :<NavLink to="/newQuestion/">New Question</NavLink>}
+                            :<NavLink to="/add/">New Question</NavLink>}
                         </li>
                         <li id="leaderBoard">
                             {authedUser === ''

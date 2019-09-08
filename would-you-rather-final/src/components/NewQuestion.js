@@ -43,19 +43,19 @@ class NewQuestion extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const value1 = this.state.formControls.optionOne.value
-        const value2 = this.state.formControls.optionTwo.value
+        const textOne = this.state.formControls.optionOne.value
+        const textTwo = this.state.formControls.optionTwo.value
         const { dispatch } = this.props
 
 
-        console.log(value1)
-        console.log(value2)
+        console.log(textOne)
+        console.log(textTwo)
 
-        dispatch(handleSaveQuestion(value1, value2))
+        dispatch(handleSaveQuestion(textOne, textTwo))
 
         this.setState({
-            value1: '',
-            value2:''
+            textOne: '',
+            textTwo:''
         });
     }
     
