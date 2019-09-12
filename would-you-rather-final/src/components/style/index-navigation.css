@@ -1,0 +1,126 @@
+#navigation{
+    margin:5%;
+    padding-left:0;
+}
+.questionList{
+    margin:0;
+    padding-left:0;
+    text-align: center;
+    cursor: pointer;
+}
+.questionList li{
+    margin:0;
+    padding-bottom: 2%;
+    width:100%;
+    font-size: 1.5em;
+    border-bottom: 1px solid black;
+}
+.selected{
+    font-weight: bold;
+    text-shadow: 1px 1px 1px pink;
+}
+a{
+    margin-bottom: 0px;
+    color: black;
+    text-decoration: none;
+}
+#helloUser{
+    display: flex;
+    text-align: center;
+    position: relative;
+}
+#helloUser img{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 180%;
+}
+#helloUser p{
+    font-size: 0.8rem;
+    margin-top: 5%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding:0;
+}
+#LoginLogout{
+    background-color: pink;
+}
+hr{
+    padding:0;
+    margin:0;
+}
+
+/*Tablet Version*/
+@media screen and (min-width:600px){
+    .questionList li{
+        font-size: 2.5em;
+        padding-top: 1.5%;
+    }
+    #helloUser{
+        display: flex;
+        text-align: center;
+        position: relative;
+    }
+    #helloUser img{
+        width: 60px;
+        height: 60px;
+        border-radius: 60%;
+    }
+    #helloUser p{
+        font-size: 1.8rem;
+        margin-top: 2%;
+    }
+}
+
+/*Desktop Version*/
+@media screen and (min-width:1025px){
+    #navigation{
+        margin: 2%;
+    }
+    .questionList{
+        display:flex;
+        margin-left: 20%;
+    }
+    .questionList li{
+        padding-bottom: 0;
+        width:20%;
+        font-size: 1.5em;
+        border-bottom: none;
+    }
+    .selected{
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    a{
+        margin-bottom: 0px;
+        color: black;
+        text-decoration: none;
+    }
+    #helloUser{
+        display: flex;
+        text-align: center;
+        position: relative;
+    }
+    #helloUser img{
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 180%;
+    }
+    #helloUser p{
+        font-size: 0.8rem;
+        margin-top: 5%;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding:0;
+    }
+    #LoginLogout{
+        background-color: white;
+    }
+    hr{
+        padding:0;
+        margin:0;
+    }
+}
