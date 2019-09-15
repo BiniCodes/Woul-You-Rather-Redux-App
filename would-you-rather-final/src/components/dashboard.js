@@ -31,7 +31,7 @@ class Dashboard extends Component {
                     <button id="unansweredQuestions" 
                             className={
                                 (this.state.answeredQuestion)
-                                ? " "
+                                ? "isNotSelected"
                                 : "isSelected"
                             }
                         onClick={this.unanswerQuestion}>Unanswered
@@ -41,7 +41,7 @@ class Dashboard extends Component {
                         className={
                             (this.state.answeredQuestion)
                                 ? "isSelected"
-                                : " "
+                                : "isNotSelected"
                         }
                         onClick={this.answerQuestion}>Answered
                     </button>
@@ -53,7 +53,6 @@ class Dashboard extends Component {
                             this.props.answeredIds.map((id) => (
                                 <li key={id}>
                                     {console.log(this.props)}
-
                                     <Question id={id} userIds={this.props.answeredIds} answered={this.state.answeredQuestion}/>
                                 </li>))
                         )

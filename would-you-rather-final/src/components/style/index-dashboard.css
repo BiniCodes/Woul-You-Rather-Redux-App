@@ -33,18 +33,25 @@ li{
     margin-top:0;
     cursor: pointer;
 }
-.isSelected{
+#answeredUnanswered button:focus{
+    outline: 1px solid black;
+}
+.isNotSelected{
     background-color: pink;
+}
+.isSelected{
+    background-color: rgb(219,112,147);
+    font-weight: bold;
 }
 /* User's Questions Home View */
 @media screen and (min-width:600px){
-#listUserQuestions{
-    width: 60%;
-    font-size: 0.8rem;
-}
-#answeredQuestions, #unansweredQuestions{
-    padding-left: 2%;    
-}    
+    #listUserQuestions{
+        width: 80%;
+        font-size: 0.8rem;
+    }
+    #answeredQuestions, #unansweredQuestions{
+        padding-left: 2%;    
+    }    
     
 }
 
