@@ -1,8 +1,8 @@
 let users = {
-  sarahedo: {
-    id: "sarahedo",
-    name: "Sarah Edo",
-    avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg",
+  spiderman: {
+    id: "spiderman",
+    name: "Spiderman",
+    avatarURL: "https://cdn.pixabay.com/photo/2019/08/01/21/40/spiderman-4378357_1280.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -21,10 +21,10 @@ let users = {
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"]
   },
-  johndoe: {
-    id: "johndoe",
-    name: "John Doe",
-    avatarURL: "https://unsplash.com/photos/o4c2zoVhjSw",
+  catwoman: {
+    id: "catwoman",
+    name: "Catwoman",
+    avatarURL: "https://cdn.pixabay.com/photo/2018/03/01/06/35/cat-3189845_1280.jpg",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -37,10 +37,10 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
+    author: 'spiderman',
     timestamp: 1467166872634,
     optionOne: {
-      votes: ['sarahedo'],
+      votes: ['spiderman'],
       text: 'have horrible short term memory',
     },
     optionTwo: {
@@ -50,27 +50,27 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: '6ni6ok3ym7mf1p33lnez',
-    author: 'johndoe',
+    author: 'catwoman',
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['catwoman', 'spiderman'],
       text: 'become a supervillain'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarahedo',
+    author: 'spiderman',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: 'be telekinetic',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['spiderman'],
       text: 'be telepathic'
     }
   },
@@ -83,7 +83,7 @@ let questions = {
       text: 'be a front-end developer',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['spiderman'],
       text: 'be a back-end developer'
     }
   },
@@ -96,16 +96,16 @@ let questions = {
       text: 'find $50 yourself',
     },
     optionTwo: {
-      votes: ['johndoe'],
+      votes: ['catwoman'],
       text: 'have your best friend find $500'
     }
   },
   "xj352vofupe1dqz9emx13r": {
     id: 'xj352vofupe1dqz9emx13r',
-    author: 'johndoe',
+    author: 'catwoman',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['johndoe'],
+      votes: ['catwoman'],
       text: 'write JavaScript',
     },
     optionTwo: {
