@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
 import { BrowserRouter as Link, Redirect } from "react-router-dom";
 import './style/index-login.css'
-import Superheroes from './img/superheroes.jpg'
+import Pow from './img/pow.png'
+
 
 
 
@@ -59,7 +60,7 @@ class Login extends Component{
                 <hr/>
 
                 <div id="loginArea">
-                    <img className="centerElement" src={Superheroes} alt="React Redux Logo"/>
+                    <img className="centerElement" src={Pow} alt="React Redux Logo"/>
 
                         <form action="" onSubmit={this.handleSubmit}  >
                             <label>Sign In
