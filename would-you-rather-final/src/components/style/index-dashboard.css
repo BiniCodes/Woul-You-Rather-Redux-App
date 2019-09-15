@@ -1,4 +1,4 @@
-Flexbox containers
+/*Flexbox containers*/
 .columnView{
     display:flex;
     flex-direction: column;
@@ -7,12 +7,11 @@ Flexbox containers
     display: flex;
     flex-direction: row;
 }
-/*  */
+
+/*Mobile Version*/
 li{
     list-style-type: none;
 }
-
-/*Mobile Version*/
 #listUserQuestions{
     padding: 0;
     width: 80%;
@@ -29,21 +28,14 @@ li{
     border: 1px solid black;
     
 }
-#answeredUnanswered a:last-child{
-    border-left: 1px solid black;
+#answeredUnanswered button{
+    width: 50%;
+    margin-top:0;
+    cursor: pointer;
 }
-
-.selected{
-    font-weight: bold;
-    background-color:red;
+.isSelected{
+    background-color: pink;
 }
-/* #answeredUnanswered a:link{
-    text-decoration: none;
-} */
-/* #answeredUnanswered a:active{
-    background-color: aquamarine;
-    color:black;
-} */
 /* User's Questions Home View */
 @media screen and (min-width:600px){
 #listUserQuestions{
