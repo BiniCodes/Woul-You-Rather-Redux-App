@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {formatQuestion} from '../utils/helpers.js';
 import { setQuestionId } from '../actions/questionId'
-import PollQuestion from './PollQuestion.js';
-import { BrowserRouter as Switch, Route, Link , Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./style/index-question.css";
 
 
@@ -22,7 +21,6 @@ class Question extends Component {
         const questionId = e.target.value
 
         const {dispatch} = this.props
-// https://stackoverflow.com/questions/41726021/react-component-props-only-changing-after-second-onclick-event
         dispatch(setQuestionId(questionId))
 
         this.setState(()=> ({
@@ -51,18 +49,8 @@ class Question extends Component {
         console.log(this.state.id)
 
 
-        const {
-            avatar, choseOptionOne, choseOptionTwo, name, questionId, textOne, textTwo, timestamp
-        } = this.props.question
+        const { avatar,name, questionId, textOne } = this.props.question
 
-
-        // if ((this.state.toQuestion || this.state.toResult) === true){
-        //     return <Redirect to= {{
-        //         path:"/questions/",
-        //         state: {toQuestion:this.state.toQuestion}
-        //         }}
-        //     />
-        // }
         if (this.state.toQuestion === true) {
             return <Redirect to={{
                 pathname: `/questions/${this.props.questionId}`,
@@ -70,6 +58,7 @@ class Question extends Component {
             }}
             />
         } 
+        
         if (this.state.toResult === true){
             return <Redirect to={{
                 pathname: `/questions/${this.props.questionId}`,
@@ -81,10 +70,13 @@ class Question extends Component {
 
         return (
             <div className="userQuestions">
+
                 <div className="columnView">
+
                     <h2>
                         <span>{name +' '}</span> asks:
                     </h2>
+
                     <div className="userContent">
 
                         <img
@@ -102,9 +94,9 @@ class Question extends Component {
                         </div>
 
                     </div>
+
                 </div>
-                {/*if not answered question then show Pollquestion, if answered show Balkendiagramm*/}
-                {/* <PollQuestion id={this.props.id} question={this.props.question} authedUser={this.props.authedUser}/> */}
+
             </div>
         )}
 }

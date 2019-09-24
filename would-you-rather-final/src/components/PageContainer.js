@@ -1,13 +1,11 @@
-import React, {Component , Fragment} from 'react'
+import React, {Component} from 'react'
 import Navigation from './navigation.js'
 import Dashboard from './dashboard.js'
 import { connect } from 'react-redux'
 import NewQuestion from './NewQuestion.js';
 import Login from './Login.js';
-import Results from './Results';
 import Leaderboard from './Leaderboard';
-import { BrowserRouter as Switch, Route, Router, Redirect, Link } from "react-router-dom";
-import PollQuestion from './PollQuestion.js';
+import { BrowserRouter as Switch, Route, Redirect } from "react-router-dom";
 import NotFound from './404.js'
 import QuestionId from './QuestionId.js';
 
@@ -35,11 +33,9 @@ class PageContainer extends Component{
                         <Route exact path="/login" component={Login} authedUser={authedUser} />
                         <PrivateRoute exact path="/dashboard/" component={Dashboard} ids={this.props.questionIds} authedUser={authedUser}/>
                         <PrivateRoute exact path="/questions/:id" component={QuestionId} ids={this.props.questionIds} userIds={this.props.userIds} authedUser={authedUser} />
-
                         <PrivateRoute path="/add/" component={NewQuestion} authedUser={authedUser} />
                         <PrivateRoute path="/leaderboard/" component={Leaderboard} authedUser={authedUser} />
-                        <Route component={NotFound}/>
-
+                        {/* <Route component={NotFound}/> */}
                 </Switch>
         )
     }

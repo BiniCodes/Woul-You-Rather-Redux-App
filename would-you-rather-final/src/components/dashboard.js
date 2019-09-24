@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import { connect } from 'react-redux'
 import Question from './Question'
-import { BrowserRouter as Switch, Route, Link, NavLink } from "react-router-dom";
 import './style/index-dashboard.css'
 
 

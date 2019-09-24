@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helpers.js';
 import { handleSaveQuestionAnswer} from '../actions/questions'
 import {Redirect} from 'react-router-dom'
+import "./style/index-pollquestion.css";
 
 
 class PollQuestion extends Component{
@@ -11,7 +12,7 @@ class PollQuestion extends Component{
         value: '',
         option: '',
         isAnswered: false,
-    }
+    }   
 
     handleChange = (event) => {
         const value = event.target.value
@@ -20,9 +21,6 @@ class PollQuestion extends Component{
 
         event.preventDefault();
         console.log(event.target.value)
-
-        // this.setState(() => ({
-        // }))
         console.log(this.state.value)
 
         const{ id} = this.props
@@ -74,12 +72,10 @@ class PollQuestion extends Component{
         console.log(this.props.id)
 
         const {
-            avatar, choseOptionOne, choseOptionTwo, name, questionId, textOne, textTwo, timestamp
+            avatar, name, textOne, textTwo
         } = this.props.question;
 
-        const { value } = this.state
 
-     
         if (this.state.isAnswered === true) {
             return <Redirect to={{
                 pathname: `/questions/${this.props.questionId}`,
@@ -89,13 +85,13 @@ class PollQuestion extends Component{
         }
 
         return(
-            <div>
-                <div>
+            <div className="userPoll">
+                <div className="columnView">
                     <h2>
                         <span>{name + ' '}</span>
                         asks:
                     </h2>
-                    <div className="userContent">
+                    <div className="userContentPoll">
                         <img
                             src={avatar}
                             alt={name}
@@ -105,14 +101,14 @@ class PollQuestion extends Component{
                             <form onSubmit={this.handleSubmit}>
                                 <div className="choiceOne">
                                     <label htmlFor="choiceOne">
-                                        <input type="radio" id="contactChoice1" name="option" value={textOne} onChange={this.handleChange} checked={this.state.option === 'optionOne'}/>
+                                        <input type="radio" id="contactChoice1" className="labelText" name="option" value={textOne} onChange={this.handleChange} checked={this.state.option === 'optionOne'}/>
                                         {textOne}
                                     </label>
 
                                 </div>
                                 <div className="choiceTwo">
                                     <label htmlFor="choiceTwo">
-                                        <input type="radio" id="contactChoice2" name="option" value={textTwo} onChange={this.handleChange} checked={this.state.option === 'optionTwo'}/>
+                                        <input type="radio" id="contactChoice2" className="labelText" name="option" value={textTwo} onChange={this.handleChange} checked={this.state.option === 'optionTwo'}/>
                                         {textTwo}
                                     </label>
                                 </div>

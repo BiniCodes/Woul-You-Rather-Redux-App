@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from '../actions/questions'
 import './style/index-newQuestion.css'
+import { BrowserRouter as Redirect } from "react-router-dom";
+
 
 
 
@@ -9,22 +11,24 @@ class NewQuestion extends Component{
 
     state = {
         formControls: {
-            optionOne: {
-                value:''
+            textOne: {
+                text:''
             },
-            optionTwo: {
-                value:''
+            textTwo: {
+                text:''
             }
-        }
+        },
+        
+        toDashboard: false,
     }
 
     handleChange = (event) => {
 
         // zwischen valueOne und valueTwo target unterscheiden!
-        const value = event.target.value;
+        const text = event.target.value;
         const name = event.target.name
 
-        console.log(value)
+        console.log(text)
         console.log(name)
 
 
@@ -33,7 +37,7 @@ class NewQuestion extends Component{
                 ...this.state.formControls,
                 [name]: {
                     ...this.state.formControls[name],
-                    value
+                    text
                 }
             }
         })
@@ -43,8 +47,8 @@ class NewQuestion extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const textOne = this.state.formControls.optionOne.value
-        const textTwo = this.state.formControls.optionTwo.value
+        const textOne = this.state.formControls.textOne.text
+        const textTwo = this.state.formControls.textTwo.text
         const { dispatch } = this.props
 
 
@@ -53,31 +57,46 @@ class NewQuestion extends Component{
 
         dispatch(handleSaveQuestion(textOne, textTwo))
 
-        this.setState({
-            textOne: '',
-            textTwo:''
-        });
-    }
+        this.setState(() => ({
+            formControls: {
+                textOne: {
+                    text: ''
+                },
+                textTwo: {
+                    text: ''
+                }
+            },
+            toDashboard: true
+        }))
+
+        console.log(this.state)
+
+}
     
 
-
-
     render(){
+
+        console.log(this.state)
+        
+        if (this.state.toDashboard === true) {
+            return <Redirect to='/dashboard' />
+        }
+        
         return(
             <div id="containerQuestions">
                 <h2 id="newQuestionTitle">Create New Question</h2>
                 <hr/>
 
-                <div class="createQuestion">
+                <div className="createQuestion">
                     <h3>Complete the question:</h3>
                     <h2>Would you rather...</h2>
 
                     <form onSubmit={this.handleSubmit}>
-                        <input id="firstAnswer" name="optionOne" type="text" placeholder="Enter Option One Text Here" value={this.state.formControls.optionOne.value} onChange={this.handleChange}/>
+                        <input id="firstAnswer" name="textOne" type="text" placeholder="Enter Option One Text Here" value={this.state.formControls.textOne.value} onChange={this.handleChange}/>
                         <p>OR</p>
-                        <input id="secondAnswer" name="optionTwo" type="text" placeholder="Enter Option Two Text Here" value={this.state.formControls.optionTwo.value} onChange={this.handleChange}/>
+                        <input id="secondAnswer" name="textTwo" type="text" placeholder="Enter Option Two Text Here" value={this.state.formControls.textTwo.value} onChange={this.handleChange}/>
 
-                        <button class="submitButton" type="submit">Submit</button>
+                        <button className="submitButton" type="submit">Submit</button>
                     </form>
                 </div>
             </div>        

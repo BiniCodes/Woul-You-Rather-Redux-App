@@ -1,4 +1,6 @@
 import React from 'react'
 
-export default () =>
-<h3>Not Found</h3>
+export default ({location}) =>
+<h3>
+    Not Found , no match for <code>{location.pathname}</code>
+</h3>

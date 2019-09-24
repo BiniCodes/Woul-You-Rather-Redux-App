@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
-import { BrowserRouter as Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './style/index-login.css'
 import Pow from './img/pow.png'
 
@@ -44,7 +44,7 @@ class Login extends Component{
     }
 
     render(){
-        const { users, authedUser } = this.props;
+        const { users } = this.props;
 
         if (this.state.toDashboard === true) {
             return <Redirect to='/dashboard' />

@@ -47,32 +47,26 @@ class Results extends Component{
                                     <span className="resultOnePercentage">{percentageVotes(totalVotes,votesOne)}</span>
                                 </div>
                                 <h3 className="voteChoiceOne"> {votesOne} out of {totalVotes} votes</h3>
-                                {/* {
-                                    (questions[id].optionOne.votes.includes(authedUser))
-                                    ? console.log('This is your choice.' + authedUser)
-                                        : console.log('NOPE')
-                                    } */}
                             </div>
                         </div>
+
                         <div id="choiceTwoSolution"
                             className={
                                 (questions[id].optionTwo.votes.includes(authedUser))
                                     ? 'chosen'
                                     : null
                             }
-
                         >
+
                             <p>Would you rather {optionTwo} ?</p>
+                            
                             <div className="resultBarTwo">
                                 <div className="resultTwoPercentageBar" style={{ width: percentageVotes(totalVotes, votesTwo)}}>
                                     <span className="resultTwoPercentage">{percentageVotes(totalVotes,votesTwo)}</span>
                                 </div>
                                 <h3 className="voteChoiceTwo"> {votesTwo} out of {totalVotes} votes</h3>
                                 {
-                                    console.log((questions[id].optionTwo.votes).includes(authedUser))
-                                        // ? console.log('This is your choice.' + authedUser)
-                                        // :console.log('NOPE')
-                                         
+                                    console.log((questions[id].optionTwo.votes).includes(authedUser))                                         
                                 }
                                 
                             </div>

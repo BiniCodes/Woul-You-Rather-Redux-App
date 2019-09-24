@@ -32,9 +32,10 @@ class Leaderboard extends Component{
     }
 
         return(
-            <div id="leaderboard">
 
-                <ul>
+            <div >
+
+                <ul id="leaderboard">
 
                 {sort(users).map((user) =>{
                     return(
@@ -52,8 +53,11 @@ class Leaderboard extends Component{
                         </li>
                     )})
                 }
+
                 </ul>
+
             </div>
+
         )
     }
 }
