@@ -1,5 +1,6 @@
-
-
+#leaderboard{
+    padding-left: 0;
+}
 #leaderBoardItem{
     width: 90%;
     display: flex;
@@ -83,10 +84,13 @@
         width:80%;
         margin-left:auto;
         margin-right:auto;
+
     } 
     #leaderBoardItem{
-        width: 33.3%;
-        display: flex;
+        font-size: 1.8rem;
+        width: 70%;
+        margin-left:50%;
+        margin-right:auto;
         border: 2px solid black;
         margin: 5%;
         min-height: 150px;
@@ -97,6 +101,7 @@
         height: 50%;
         border-radius:360px;
         margin: auto 2%;
+        padding: 2%;
     }
     #questionsSummary{
         border-left: 1px solid black;

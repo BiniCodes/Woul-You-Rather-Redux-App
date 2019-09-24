@@ -62,6 +62,7 @@
     position:absolute;
     bottom: 0;
     margin: 5% auto;
+    background-color: lightblue;
 }
 
 /*Tablet Version*/
@@ -88,7 +89,7 @@
         border-radius: 50%;
     }
     .question{
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         padding: 5%;
         border-left: 1px solid black;
         margin: 5% 0;
@@ -96,10 +97,11 @@
 
     }
     .question h3{
-        font-size: 2rem;
+        font-size: 1.5rem;
+        padding-bottom: 2%;
     }
     .question p{
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
     .question button{
         font-size:1.5rem;

@@ -10,6 +10,7 @@
 }
 #loginHead{
     font-size: 0.6em;
+    background-color: pink;
 }
 #loginArea img{
     width: 40%;
@@ -24,12 +25,19 @@
 
 #loginArea form label select{
     min-height: 48px;
-    margin-top:2% 
+    margin-top:2% ;
+    cursor: pointer;
 }
 #loginArea form label button{
     margin-top: 5%;
     cursor: pointer;
+    background-color: lightblue;
 }
+#loginArea form label select option{
+    cursor: pointer;
+}
+
+
 
 /*Tablet Version*/
 @media screen and (min-width:600px){
