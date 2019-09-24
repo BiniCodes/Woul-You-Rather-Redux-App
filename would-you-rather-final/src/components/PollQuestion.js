@@ -19,7 +19,6 @@ class PollQuestion extends Component{
 
         const {option } = this.state
 
-        event.preventDefault();
         console.log(event.target.value)
         console.log(this.state.value)
 
