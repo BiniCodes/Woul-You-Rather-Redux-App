@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveQuestion } from '../actions/questions'
 import './style/index-newQuestion.css'
-import { BrowserRouter as Redirect } from "react-router-dom";
+import { Redirect } from "react-router";
 
 
 
