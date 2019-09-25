@@ -22,7 +22,7 @@ export default function users (state={}, action) {
         case SAVE_ANSWER:
             return{
                 ...state,
-                [action.autheduser]: {
+                [action.authedUser]: {
                     ...state[action.authedUser],
                     answers: {
                         ...state[action.authedUser].answers,
