@@ -77,7 +77,7 @@ class PollQuestion extends Component{
 
         if (this.state.isAnswered === true) {
             return <Redirect to={{
-                pathname: `/questions/${this.props.questionId}`,
+                pathname: `/questions/${this.props.id}`,
                 state: { isQuestion: false },
             }}
             />
