@@ -10,15 +10,24 @@ form: “Would you rather [option A] or [option B] ?”. Answering "neither" or 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Start the app
+## Install and start the app
 
-    1) Download the repository
+    1) Download / Clone the repository
+    
+    2) The following needs to be installed:
+	-[redux](https://redux.js.org/introduction/installation)
+	-[react-redux](https://redux.js.org/introduction/installation)
+	-[redux-devtools](https://redux.js.org/introduction/installation#complementary-packages)
+	-[react-router](https://www.npmjs.com/package/react-router)
+	-[react-router-dom)[https://www.npmjs.com/package/react-router-dom)
 
-    2) Start the development server with npm start in your command line for the project folder
+    3) Install all dependicies with 'npm install'
 
-    3) The app opens automatically in your default browser on localhost 3000
+    3) Start the development server with 'npm start' 
 
-    Note: Make sure Node.js is installed.
+    4) The app opens automatically in your default browser on http://localhost:3000/
+
+    Note: Make sure [Node.js](https://nodejs.org/en/) is installed.
 
 ## Code References
 
