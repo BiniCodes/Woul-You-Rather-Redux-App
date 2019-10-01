@@ -44,7 +44,7 @@ class Navigation extends Component {
                         {authedUser === ''
                         ? null
                         :   <li id="LoginLogout">
-                                <NavLink to="/" onClick={this.handleLogout} activeClassName="selected">Logout</NavLink>
+                                <NavLink to="/" onClick={this.handleLogout}>Logout</NavLink>
                             </li>
                         }
 
