@@ -48,7 +48,7 @@ class Login extends Component{
         const lastLocation = this.props.location.state;
 
         if ( this.state.loggedIn && lastLocation ) {
-            return <Redirect to={ lastLocation } />
+            return <Redirect to={ lastLocation.from } />
         } else if(this.state.loggedIn){
             return <Redirect to= "/dashboard" />
         }
