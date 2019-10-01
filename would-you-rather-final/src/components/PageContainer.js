@@ -17,7 +17,10 @@ const PrivateRoute = ({component: Component, authedUser, ...rest}) =>{
         <Route {...rest} render={props => (
                 authedUser
                 ? <Component {...props} />
-                : <Redirect to="/login" />
+                : <Redirect to={{
+                    to: "/",
+                    state:{ from:props.location }
+                }}/>
             )}
         />
     )           
@@ -30,12 +33,12 @@ class PageContainer extends Component{
         return(
                 <Switch>
                         <Navigation/>
-                        <Route exact path="/login" component={Login} authedUser={authedUser} />
-                        <PrivateRoute exact path="/dashboard/" component={Dashboard} ids={this.props.questionIds} authedUser={authedUser}/>
+                        <Route exact path="/" component={Login} authedUser={authedUser} />
+                        <PrivateRoute exact path="/dashboard" component={Dashboard} ids={this.props.questionIds} authedUser={authedUser}/>
                         <PrivateRoute exact path="/questions/:id" component={QuestionId} ids={this.props.questionIds} userIds={this.props.userIds} authedUser={authedUser} />
-                        <PrivateRoute path="/add/" component={NewQuestion} authedUser={authedUser} />
-                        <PrivateRoute path="/leaderboard/" component={Leaderboard} authedUser={authedUser} />
-                        {/* <Route component={NotFound}/> */}
+                        <PrivateRoute exact path="/add/" component={NewQuestion} authedUser={authedUser} />
+                        <PrivateRoute exact path="/leaderboard/" component={Leaderboard} authedUser={authedUser} />
+                        <PrivateRoute path="/error" component={NotFound}/>
                 </Switch>
         )
     }

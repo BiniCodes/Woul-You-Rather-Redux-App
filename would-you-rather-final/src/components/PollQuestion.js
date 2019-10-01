@@ -70,6 +70,11 @@ class PollQuestion extends Component{
     render(){
         console.log(this.props.id)
 
+        //Check if question id exists, if not, redirect the user to the error page
+        if (!(this.props.id)) {
+            return <Redirect to="/error" />
+        }
+
         const {
             avatar, name, textOne, textTwo
         } = this.props.question;

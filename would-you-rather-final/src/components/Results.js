@@ -1,11 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './style/index-result.css'
+import { Redirect } from 'react-router-dom'
 
 class Results extends Component{
     
     render(){
         const { userIds, users, questions , id , authedUser} = this.props
+
+        //Check if question id exists, if not, redirect the user to the error page
+        if (!(this.props.questions[id])){
+            return <Redirect to="/error"/>
+        }
+
         const { author } = this.props.questions[id]
 
         // Add the right username with first and last name

@@ -32,7 +32,7 @@ class Navigation extends Component {
                         </li>
 
                         <li id="leaderBoard">
-                            <NavLink to="/leaderboard" activeClassName="selected">Leader Board</NavLink>
+                            <NavLink to="/leaderboard/" activeClassName="selected">Leader Board</NavLink>
                         </li>
 
                         {authedUser
@@ -44,9 +44,10 @@ class Navigation extends Component {
                         {authedUser === ''
                         ? null
                         :   <li id="LoginLogout">
-                                <NavLink to="/login" onClick={this.handleLogout} activeClassName="selected">Logout</NavLink>
+                                <NavLink to="/" onClick={this.handleLogout} activeClassName="selected">Logout</NavLink>
                             </li>
                         }
+
                     </ul>
                 </nav>
 

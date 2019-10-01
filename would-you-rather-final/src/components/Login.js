@@ -13,7 +13,7 @@ class Login extends Component{
     
     state = {
         authedUser:'',
-        toDashboard : false,
+        loggedIn: false,
     }
 
     handleChange = (event) => {
@@ -37,7 +37,7 @@ class Login extends Component{
         } else{
             dispatch(setAuthedUser(authedUser))
             this.setState(() => ({
-                toDashboard: true,
+                loggedIn: true,
                 authedUser: '',
             }))
         }      
@@ -45,10 +45,14 @@ class Login extends Component{
 
     render(){
         const { users } = this.props;
+        const lastLocation = this.props.location.state;
 
-        if (this.state.toDashboard === true) {
-            return <Redirect to='/dashboard' />
+        if ( this.state.loggedIn && lastLocation ) {
+            return <Redirect to={ lastLocation } />
+        } else if(this.state.loggedIn){
+            return <Redirect to= "/dashboard" />
         }
+        
 
         return(
             <div id="login"> 
