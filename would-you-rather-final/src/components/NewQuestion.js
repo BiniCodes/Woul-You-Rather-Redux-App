@@ -24,7 +24,7 @@ class NewQuestion extends Component{
 
     handleChange = (event) => {
 
-        // zwischen valueOne und valueTwo target unterscheiden!
+        // decide between valueOne und valueTwo target
         const text = event.target.value;
         const name = event.target.name
 
