@@ -52,25 +52,28 @@ class NewQuestion extends Component{
         const { dispatch } = this.props
 
 
-        console.log(textOne)
-        console.log(textTwo)
+        //console.log(textOne)
+        // console.log(textTwo)
 
-        dispatch(handleSaveQuestion(textOne, textTwo))
+        if (textOne === '' && textTwo === ''){
+            alert("Please enter two options.")
+        } else {
+            dispatch(handleSaveQuestion(textOne, textTwo))
 
-        this.setState(() => ({
-            formControls: {
-                textOne: {
-                    text: ''
+            this.setState(() => ({
+                formControls: {
+                    textOne: {
+                        text: ''
+                    },
+                    textTwo: {
+                        text: ''
+                    }
                 },
-                textTwo: {
-                    text: ''
-                }
-            },
-            toDashboard: true
-        }))
+                toDashboard: true
+            }))
 
-        console.log(this.state)
-
+            console.log(this.state)
+        }
 }
     
 
