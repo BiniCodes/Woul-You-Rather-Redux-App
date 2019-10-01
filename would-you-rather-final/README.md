@@ -15,11 +15,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     1) Download / Clone the repository
     
     2) The following needs to be installed:
-	-[redux](https://redux.js.org/introduction/installation)
-	-[react-redux](https://redux.js.org/introduction/installation)
-	-[redux-devtools](https://redux.js.org/introduction/installation#complementary-packages)
-	-[react-router](https://www.npmjs.com/package/react-router)
-	-[react-router-dom)[https://www.npmjs.com/package/react-router-dom)
+	- [redux](https://redux.js.org/introduction/installation)
+	- [react-redux](https://redux.js.org/introduction/installation)
+	- [redux-devtools](https://redux.js.org/introduction/installation#complementary-packages)
+	- [react-router](https://www.npmjs.com/package/react-router)
+	- [react-router-do](https://www.npmjs.com/package/react-router-dom)
 
     3) Install all dependicies with 'npm install'
 
